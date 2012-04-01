@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+	<jmxConfigurator/>
+
+	<logger name="eu" level="INFO"/>
+
+	<logger name="net" level="INFO"/>
+
+	<logger name="org" level="INFO"/>
+
+	<logger name="org.hibernate" level="INFO"/>
+
+	<logger name="org.jdbcdslog.ConnectionLogger" level="WARN"/>
+
+	<logger name="org.springframework" level="INFO"/>
+	<logger name="org.springframework.aop.framework.Cglib2AopProxy" level="ERROR"/>
+	<logger name="org.springframework.security" level="INFO"/>
+
+	<logger name="org.quartz" level="INFO"/>
+
+	<root level="ALL">
+		<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+			<encoder>
+				<pattern>%d{HH:mm:ss.SSS} | %-5level | %X{username} | %thread | %logger{1} | %m%n%rEx</pattern>
+			</encoder>
+		</appender>
+	</root>
+</configuration>
