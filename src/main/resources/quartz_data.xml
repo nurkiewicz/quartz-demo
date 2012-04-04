@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job-scheduling-data xmlns="http://www.quartz-scheduler.org/xml/JobSchedulingData"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation=" http://www.quartz-scheduler.org/xml/JobSchedulingData http://www.quartz-scheduler.org/xml/job_scheduling_data_2_0.xsd ">
+
+	<processing-directives>
+		<overwrite-existing-data>false</overwrite-existing-data>
+		<ignore-duplicates>true</ignore-duplicates>
+	</processing-directives>
+
+	<schedule>
+		<trigger>
+			<simple>
+				<name>Every-few-seconds</name>
+				<group>Demo</group>
+				<job-name>Print-message</job-name>
+				<job-group>Demo</job-group>
+				<repeat-count>-1</repeat-count>
+				<repeat-interval>4000</repeat-interval>
+			</simple>
+		</trigger>
+
+		<job>
+			<name>Print-message</name>
+			<group>Demo</group>
+			<job-class>com.blogspot.nurkiewicz.quartz.demo.PrintMessageJob</job-class>
+			<job-data-map>
+				<entry>
+					<key>msg</key>
+					<value>Hello, World!</value>
+				</entry>
+			</job-data-map>
+		</job>
+
+	</schedule>
+
+
+</job-scheduling-data>

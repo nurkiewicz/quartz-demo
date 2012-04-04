@@ -5,6 +5,7 @@ import org.springframework.core.io.ClassPathResource
 import org.springframework.scheduling.quartz.{SpringBeanJobFactory, SchedulerFactoryBean}
 import org.springframework.context.annotation.{DependsOn, Bean, Configuration}
 import scala.collection.JavaConverters._
+import com.blogspot.nurkiewicz.quartz.demo.Printer
 
 /**
  * @author Tomasz Nurkiewicz
@@ -15,6 +16,9 @@ class Scheduling {
 
 	@Resource
 	val persistence: Persistence = null
+
+	@Resource
+	val printer: Printer = null
 
 	@Bean
 	@DependsOn(Array("flyway"))
@@ -32,6 +36,7 @@ class Scheduling {
 
 	def schedulerContextMap() =
 		Map(
+			"printer" -> printer
 		).asJava
 
 	@Bean
